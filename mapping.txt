@@ -21,65 +21,9 @@ Since the middle row is the easiest to type, the most common letters have been m
 
 We will use combinations of these keys (chords) to type. The formulas to build a keypress are as follows:
 
-A: 
+r: A2 + B1
 
 Alphabet letters:
-
-a: 
-b: 
-c: 
-d: 
-e: B2 + C2 
-f: 
-g: 
-h: 
-i: 
-j: 
-k: 
-l: 
-m: 
-n: 
-o: 
-p: 
-q: 
-r: 
-s: 
-t: A2 + B2 + C2
-u: 
-v: 
-w: 
-x: 
-y: 
-z: 
-
-A: 
-B: 
-C: 
-D: 
-E: 
-F: 
-G: 
-H: 
-I: 
-J: 
-K: 
-L: 
-M: 
-N: 
-O: 
-P: 
-Q: 
-R: 
-S: 
-T: 
-U: 
-V:
-W: 
-X: 
-Y: 
-Z:
-
-
 abcdefghijklmnopqrstuvwxyz
 
 
@@ -92,8 +36,6 @@ Prose = 6, Casual = 8, Programming = 4, Formal = 2, News = 7 (weighted)  :   e t
 Letter frequency for Ruby:
 Ruby:      e t n s a o r i l d c _ p u m f " . , = h ' ( : ) g b v > y w < [ ] / 1 x @ q k 0 \ 2 | ? { } 3 - j 5 4 z 6 7 % 9 8 + ! * & $ ; # ^ ~ `
 
-
-
 Twiddler mapping:
 
 If we wanted to use the twiddler keymap, we would translate this way:
@@ -105,3 +47,18 @@ L: 3
 M: 2
 R: 1
 
+Modes:
+The twiddler has four buttons for the thumb that map to 
+Num = numbers mode
+Alt = alt key
+Ctrl = ctrl key
+Shift = shift key
+
+The Nostromo has an 8-way pad for the thumb. We can map those modes like this:
+       num
+        ^
+shift <   > ctrl
+        v
+       alt
+
+This way (I think), you can push the thumb pad to the lower right and push both ctrl and alt simultaneously
