@@ -1,0 +1,107 @@
+This is an attempt at coming up with a chording keyboard layout for the Razor Nostromo keyboard.
+
+The keys are named as the table below:
+
+  A  B  C  D  E
+1 A1 B1 C1 D1 E1
+2 A2 B2 C2 D2 E2
+3 A3 B3 C3 D3
+
+(note that there is no E3)
+
+Typing:
+A = pinky finger
+B = ring finger
+C = middle finger
+D = index finger
+
+There are three keys for each finger. Additionally, there is a thumb 8-way pad (currently not used) and a mouse scroll wheel.
+
+Since the middle row is the easiest to type, the most common letters have been mapped there, and less common characters are on the top and bottom (1 and 3) rows of keys.
+
+We will use combinations of these keys (chords) to type. The formulas to build a keypress are as follows:
+
+A: 
+
+Alphabet letters:
+
+a: 
+b: 
+c: 
+d: 
+e: B2 + C2 
+f: 
+g: 
+h: 
+i: 
+j: 
+k: 
+l: 
+m: 
+n: 
+o: 
+p: 
+q: 
+r: 
+s: 
+t: A2 + B2 + C2
+u: 
+v: 
+w: 
+x: 
+y: 
+z: 
+
+A: 
+B: 
+C: 
+D: 
+E: 
+F: 
+G: 
+H: 
+I: 
+J: 
+K: 
+L: 
+M: 
+N: 
+O: 
+P: 
+Q: 
+R: 
+S: 
+T: 
+U: 
+V:
+W: 
+X: 
+Y: 
+Z:
+
+
+abcdefghijklmnopqrstuvwxyz
+
+
+letter frequency via http://mtgap.bilfo.com/theory-of-letter-frequency.html and http://mtgap.bilfo.com/letter_frequency.html
+
+formal is not typed nearly as much as casual for most people:
+Prose = 6, Casual = 8, Programming = 4, Formal = 2, News = 7 (unweighted):   e t a o i n s r h l d c u m f p g y w b . , v k _ ( ) ; " = ' - $ x / 0 : { } 1 j * > q 2 [ ] z ! \ ? < + 3 @ | 5 4 # & 6 8 9 7 % ~ ^ `
+Prose = 6, Casual = 8, Programming = 4, Formal = 2, News = 7 (weighted)  :   e t a i o n s r h l d c u m p f g y w b , . v k " - 0 ' x j 1 z 2 q 9 5 3 8 4 7 : 6 ) ( $ ; | ? / ! & [ ] % _ @ > = * < + # ` ^ { } ~ \
+
+Letter frequency for Ruby:
+Ruby:      e t n s a o r i l d c _ p u m f " . , = h ' ( : ) g b v > y w < [ ] / 1 x @ q k 0 \ 2 | ? { } 3 - j 5 4 z 6 7 % 9 8 + ! * & $ ; # ^ ~ `
+
+
+
+Twiddler mapping:
+
+If we wanted to use the twiddler keymap, we would translate this way:
+
+(assuming a right-handed Twiddler and a left-handed Corder)
+
+Twiddler : Corder
+L: 3
+M: 2
+R: 1
+
