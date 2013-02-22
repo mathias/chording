@@ -1,0 +1,102 @@
+#!/usr/local/sbin/mxk -dzp
+#
+# -p is needed to specify the script file
+# -z disables interactive console
+# -d backgrounds
+
+echo chords: chording keyboard.
+
+# List the available input devices
+
+echo chords: Available sources:
+list-sources
+
+# Find an input device which has keys, but no relative or absolute motion,
+# we assume that this is a keyboard, this may not work everywhere
+# Alternative
+#caps-source 0 key !relative !absolute
+# Alternative: if you know that the keyboard is always at event2
+#file-source 0 /dev/input/event2
+# Alternative: if you know that the keyboard contains the substring eyboard
+name-source 0 eyboard
+norepeat-source 0
+echo chords: Selected source:
+used-sources
+
+# First filter out the keys which should never autorepeat, all others will
+start-sorter 0 0
+match-sorter 0 leftcontrol 1
+match-sorter 0 rightcontrol 1
+match-sorter 0 leftshift 1
+match-sorter 0 rightshift 1
+match-sorter 0 leftalt 1
+match-sorter 0 rightalt 1
+connect-node source sorter
+
+# set up a mode switch, controlled by the caps lock key
+start-branch 0
+key-branch 0 insert toggle
+default-branch 0 pass
+# have all autorepeat keys go here 
+bin-sorter 0 0
+connect-node sorter:0 branch:0
+
+# flash caps lock if in the up mode
+#load-pattern hjkl on:caps wait:500 off:caps wait:500 repeat
+#light-branch 0 hjkl
+
+start-chord 0
+
+# set chords do not depend on order
+
+# first diagram
+new-set-chord 0 tab e
+new-set-chord 0 space d
+new-set-chord 0 backspace c
+
+new-set-chord 0 o w
+new-set-chord 0 e s
+new-set-chord 0 i x
+
+new-set-chord 0 u d w
+new-set-chord 0 d d s
+new-set-chord 0 c d x
+
+new-set-chord 0 w d q
+new-set-chord 0 l d a
+new-set-chord 0 f d z
+
+# connect up branch of mode switch to array rewriter 
+up-branch 0 
+connect-node branch:0 chord:0
+
+# need to do our own repeater, delays for 300ms then repeats every 35ms
+# this is quite fast
+start-repeater 0 300 35
+# alternative, somewhat slower repeats
+# start-repeater 0 600 100
+
+# make things adjustable, using keypad + and -
+adjust-repeater 0 20 kpminus kpplus
+echo chords: adjust repeat spead with keypad plus and minus
+
+# connect plain (down) path
+down-branch 0
+connect-node branch:0 repeater:0
+# connect rewritten (up) path
+connect-node chord:0 repeater:0
+
+# output
+start-target 
+
+# connect all nonrepeating nodes to target 
+bin-sorter 0 1
+connect-node sorter:0 target:0
+
+# connect repeater to target
+connect-node repeater:0 target:0
+
+lock-source 0
+
+echo chords: setup complete
+echo chords: hit insert to use nostromo as chording keyboard
