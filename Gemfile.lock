@@ -1,7 +1,14 @@
+PATH
+  remote: ./libhid-ruby
+  specs:
+    libhid-ruby (0.0.1)
+      ffi (>= 1.0.0)
+
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     coderay (1.0.8)
+    ffi (1.4.0)
     method_source (0.8.1)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -13,4 +20,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  libhid-ruby!
   pry

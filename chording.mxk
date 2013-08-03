@@ -37,7 +37,7 @@ connect-node source sorter
 start-branch 0
 key-branch 0 insert toggle
 default-branch 0 pass
-# have all autorepeat keys go here 
+# have all autorepeat keys go here
 bin-sorter 0 0
 connect-node sorter:0 branch:0
 
@@ -47,27 +47,66 @@ connect-node sorter:0 branch:0
 
 start-chord 0
 
-# set chords do not depend on order
+# using new-set-chord does not depend on press order
 
-# first diagram
-new-set-chord 0 tab e
-new-set-chord 0 space d
-new-set-chord 0 backspace c
 
-new-set-chord 0 o w
-new-set-chord 0 e s
-new-set-chord 0 i x
+# second diagram
+gap-set-chord 0 u d w
+gap-set-chord 0 d d s
+gap-set-chord 0 c d x
 
-new-set-chord 0 u d w
-new-set-chord 0 d d s
-new-set-chord 0 c d x
+gap-set-chord 0 w d q
+gap-set-chord 0 l d a
+gap-set-chord 0 f d z
 
-new-set-chord 0 w d q
-new-set-chord 0 l d a
-new-set-chord 0 f d z
+gap-set-chord 0 y d tab
+gap-set-chord 0 m d capslock
+gap-set-chord 0 g d v
 
-# connect up branch of mode switch to array rewriter 
-up-branch 0 
+# second diagram betweeners
+gap-set-chord 0 v d w q
+gap-set-chord 0 p d s a
+gap-set-chord 0 b d x z
+
+gap-set-chord 0 x d q tab
+gap-set-chord 0 k d a capslock
+gap-set-chord 0 j d z v
+
+gap-set-chord 0 z d w tab
+gap-set-chord 0 q d s capslock
+
+# third diagram
+gap-set-chord 0 3 c w
+gap-set-chord 0 2 c s
+gap-set-chord 0 1 c x
+
+gap-set-chord 0 6 c q
+gap-set-chord 0 5 c a
+gap-set-chord 0 4 c z
+
+gap-set-chord 0 y c tab
+gap-set-chord 0 m c capslock
+gap-set-chord 0 g c v
+
+# first diagram - define single-character chords last
+gap-set-chord 0 tab e
+gap-set-chord 0 space d
+gap-set-chord 0 backspace c
+
+gap-set-chord 0 o w
+gap-set-chord 0 e s
+gap-set-chord 0 i x
+
+gap-set-chord 0 r q
+gap-set-chord 0 t a
+gap-set-chord 0 n z
+
+gap-set-chord 0 s tab
+gap-set-chord 0 h capslock
+gap-set-chord 0 a v
+
+# connect up branch of mode switch to array rewriter
+up-branch 0
 connect-node branch:0 chord:0
 
 # need to do our own repeater, delays for 300ms then repeats every 35ms
@@ -87,9 +126,9 @@ connect-node branch:0 repeater:0
 connect-node chord:0 repeater:0
 
 # output
-start-target 
+start-target
 
-# connect all nonrepeating nodes to target 
+# connect all nonrepeating nodes to target
 bin-sorter 0 1
 connect-node sorter:0 target:0
 
