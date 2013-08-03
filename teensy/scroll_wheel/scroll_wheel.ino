@@ -7,6 +7,8 @@ int val = 0;
 int ledPin = 11;
 int scrollWheelPin = 10;
 
+int velocity = 10;
+
 void setup() {
   Serial.begin(9600);
   pinMode(scrollWheelPin, INPUT_PULLUP);
@@ -20,7 +22,7 @@ void loop() {
   if (val != previousVal) {
     Serial.println(val);
     digitalWrite(ledPin, val);
-    Mouse.scroll(-3);
+    Mouse.scroll(-1 * velocity);
     delay(300);
     previousVal = val;
   }
