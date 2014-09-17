@@ -15,25 +15,31 @@ void setup() {
   pinMode(footPedalPin, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
   Keyboard.begin();
-  
+
   delay(1000);
   Serial.println("All set");
 }
 
+void leaveInsert() {
+  // We have to build Ctrl-[ to leave insert since
+  // the ESC key does not seem to be detected on OSX.
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.press('[');
+  Keyboard.releaseAll();
+};
+
 void loop() {
   button.update();
-  
+
+
   if (button.fallingEdge()) {
+    // ensure we're not in insert mode
+    leaveInsert();
     // enter insert
     Keyboard.write("i");
     digitalWrite(ledPin, HIGH);
   } else if (button.risingEdge()) {
-    // leave insert
-    // We have to build Ctrl-[ to leave insert since
-    // the ESC key does not seem to be detected on OSX.
-    Keyboard.press(KEY_LEFT_CTRL);
-    Keyboard.press('[');
-    Keyboard.releaseAll();
+    leaveInsert();
     digitalWrite(ledPin, LOW);
   }
 }
